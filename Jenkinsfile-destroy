@@ -1,0 +1,21 @@
+pipeline {
+    agent any
+
+    stages {
+
+        stage('Init') {
+            steps {
+                sh 'terraform init'
+            }
+        }
+
+        stage('Destroy') {
+            steps {
+                sh 'terraform destroy -auto-approve'
+            }
+        }
+
+
+
+    } //stages ending
+} //pipeline ending

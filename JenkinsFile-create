@@ -1,0 +1,25 @@
+pipeline {
+    agent any
+
+    stages {
+
+        stage('Initializing Terraform') {
+            steps {
+                sh 'terraform init'
+            }
+        }
+
+        stage('Checking Syntax') {
+            steps {
+                sh 'terraform validate'
+            }
+        }
+
+        stage('Creating Infrastructure') {
+            steps {
+                sh 'terraform apply -auto-approve'
+            }
+        }
+
+    } //stages ending
+} //pipeline Ending
